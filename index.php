@@ -66,7 +66,6 @@ require_once("db.php");
     </div>
     <p>&copy; 2023 Arthur Duarte</p>
   </footer>
-
   </i>
   <!-- Bootstrap !-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.js" integrity="sha512-gMrnU9iM+azBQtrSC8kTJy6+g+hjaIHnElQmb41QeHNTGYjbbtm0BptpIMgXYpS6iyWq9bPkxrcqgK8aqRsjAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
