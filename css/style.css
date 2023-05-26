@@ -1,3 +1,144 @@
 #logo {
     width: 100px;
 }
+
+.navbar-brand {
+    position: relative;
+}
+
+#cinerate-title {
+    color: #FFF;
+    position: absolute;
+    bottom: 28px;
+    font-size: 30px;
+    left: 120px;
+    font-weight: bold;
+    transition:1s;
+}
+
+#cinerate-title:hover{
+    color:#747474;
+}
+#main-navbar {
+    background-color: #333;
+}
+
+#search-form {
+    margin: 0 auto;
+    background-color: #FFF;
+    border-radius: 6px;
+    width: 40%;
+    margin-left: 180px;
+}
+
+#search-form .form-control {
+    border: none;
+    box-shadow: none;
+    width: 90%;
+}
+
+#navbar {
+    position: relative;
+    /* Adicionado */
+}
+
+.navbar-nav {
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #FFF;
+    transition: 0.8s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #AAA;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.msg-container {
+    background-color: #505050;
+    padding: 15px;
+}
+
+.msg { 
+    width: 50%;
+    margin:0 auto;
+    padding:10px;
+    border: solid 1px #505050;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.msg.error {
+    color: red;
+    background-color: #F8D7DA;
+    border: #F5C2C7;
+}
+
+.msg.sucess {
+    color: rgb(0, 94, 0);
+    background-color: #a4e2a9;
+    
+    border: #095c2e;
+}
+/* HOME */
+
+#main-container{
+    background-color: #505050;
+    color: #FFF;
+    min-height: 65vh;
+    padding: 40px;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #333;
+    color: #FFF;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#social-container ul,
+#footer-links-container ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+#social-container li,
+#footer-links-container li{
+    display: inline-block;
+margin: 20px;
+}
+
+#social-container li{
+    height: 40px;
+    width: 40px;
+    border-radius: 100% ;
+    line-height: 3;
+    transition: .5s;
+}
+
+#social-container li:hover{
+    background-color: #555;
+}
+
+#social-container a,
+#footer-links-container a{
+    transition: .5s;
+    color: #FFF;
+
+}
+
+#social-container li i {
+    font-size: 25px;
+}
+
+#footer-links-container { 
+    margin:30px 0;
+}
