@@ -17,15 +17,17 @@ require_once("templat/header.php");
             <label for="password">Senha:</label>
             <input type="text" class="form-control" name="passoword" id="password" placeholder="Digite sua senha" required>
           </div>
-          <input type="submit" class="btn card-btn" value="Entrar">
+          <input type="submit" class="card-btn" value="Entrar">
         </form>
-        <div class="col-md-4" id="login-container">
-          <form action="" method="post">
-            <input type="hidden" value="register" name="type">
-            
-            <div class="form-group">
+      </div>
+      <div class="col-md-4" id="register-container">
+        <form action="" method="post">
+          <h2>Registrar-se</h2>
+          <input type="hidden" value="register" name="type">
+
+          <div class="form-group">
             <label for="name">Nome:</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Digite seu name" required autocomplete="off">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Digite seu nome" required autocomplete="off">
           </div>
           <div class="form-group">
             <label for="sobrenome">Sobrenome:</label>
@@ -43,17 +45,17 @@ require_once("templat/header.php");
             <label for="confirmpassoword">Confirmar senha:</label>
             <input type="password" class="form-control" name="confirmpassoword" id="confirmpassoword" placeholder="Confirme sua senha" required autocomplete="off">
           </div>
-          </form>
-          <input type="submit" class="btn card-btn" value="Cadastrar">
+          <input type="submit" class="card-btn btn-lg" value="Cadastrar">
+        </form>
 
 
-
-        </div>
 
 
       </div>
+
+
       <div class="col-md-4" id="register-container">
-        <h2>Registrar-se</h2>
+
       </div>
     </div>
   </div>
