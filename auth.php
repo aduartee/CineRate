@@ -1,12 +1,65 @@
 <?php
-  require_once("templat/header.php");
-  ?>
+require_once("templat/header.php");
+?>
 <div id="main-container" class="container-fluid">
 
-  <h1>Autenticação</h1>
+  <div class="col-md-12">
+    <div class="row" id="auth-row">
+      <div class="col-md-4" id="login-container">
+        <h2>Entrar</h2>
+        <form action="" method="post">
+          <div class="form-group">
+            <input type="hidden" value="login" name="type">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="text" class="form-control" name="passoword" id="password" placeholder="Digite sua senha" required>
+          </div>
+          <input type="submit" class="btn card-btn" value="Entrar">
+        </form>
+        <div class="col-md-4" id="login-container">
+          <form action="" method="post">
+            <input type="hidden" value="register" name="type">
+            
+            <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Digite seu name" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" class="form-control" name="sobrenome" id="sobrenome" placeholder="Digite seu sobrenome" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" name="email" id="email" placeholder="Digite seu email" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" class="form-control" name="passoword" id="password" placeholder="Digite sua senha" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="confirmpassoword">Confirmar senha:</label>
+            <input type="password" class="form-control" name="confirmpassoword" id="confirmpassoword" placeholder="Confirme sua senha" required autocomplete="off">
+          </div>
+          </form>
+          <input type="submit" class="btn card-btn" value="Cadastrar">
+
+
+
+        </div>
+
+
+      </div>
+      <div class="col-md-4" id="register-container">
+        <h2>Registrar-se</h2>
+      </div>
+    </div>
+  </div>
 
 </div>
 
-<?php 
-  require_once("templat/footer.php");
+<?php
+require_once("templat/footer.php");
 ?>
