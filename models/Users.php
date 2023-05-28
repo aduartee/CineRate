@@ -7,6 +7,7 @@ class User
     public $sobrenome;
     public $email;
     public $senha;
+    public $imagem;
     public $bio;
     public $token;
 }
