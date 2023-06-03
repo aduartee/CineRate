@@ -13,14 +13,23 @@ $flashMessage = [];
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="<?= $BASE_URL ?>img/favicon.png" type="image/x-icon">
+  <!-- Css !-->
   <link rel="stylesheet" href="css/style.css">
+  <!-- Preloader !-->
+  <link rel="stylesheet" href="css/preloader.css">
   <!-- Bootstrap !-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.css" integrity="sha512-bR79Bg78Wmn33N5nvkEyg66hNg+xF/Q8NA8YABbj+4sBngYhv9P8eum19hdjYcY7vXk/vRkhM3v/ZndtgEXRWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Font awesome  !-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="js/preloader.js"></script>
 </head>
 
 <body>
+  <div id="preloader">
+    <div class="spinner"></div>
+    <div class="fill"></div>
+  </div>
+
   <header>
     <nav id="main-navbar" class="navbar navbar-expand-lg">
       <a href="<?= $BASE_URL ?>" class="navbar-brand">
@@ -48,7 +57,6 @@ $flashMessage = [];
   </header>
   <?php if (!empty($flashMessage["msg"])) : ?>
     <div class="msg-container">
-      <p class="msg <? $flashMessage['tyoe']?>"><?= $flashMessage["msg"] ?></p>
-      </div>
+      <p class="msg <? $flashMessage['tyoe'] ?>"><?= $flashMessage["msg"] ?></p>
+    </div>
   <?php endif; ?>
-
