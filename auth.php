@@ -21,7 +21,7 @@ require_once("templat/header.php");
         </form>
       </div>
       <div class="col-md-4" id="register-container">
-        <form action="" method="post">
+        <form action = "<?=$BASE_URL?>auth_process.php" method="post">
           <h2>Registrar-se</h2>
           <input type="hidden" value="register" name="type">
 
