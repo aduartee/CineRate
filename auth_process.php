@@ -8,6 +8,8 @@ require_once("models/Users.php");
 
 $message = new Message($BASE_URL);
 
+$userDao = new UserDao($conn, $BASE_URL);
+
 $type = filter_input(INPUT_POST, "type");
 
 
@@ -20,7 +22,15 @@ if ($type == "register") {
     $confirmaSenha = filter_input(INPUT_POST, "confirmpassoword");
 
     if ($nome &&  $sobrenome &&  $email &&  $senha) {
-
+        if($senha === $confirmaSenha){ 
+            if($userDao->findByEmail($email) === false){
+                echo "Nenhum usuario encontrado";
+            } else{ 
+                $message->setMessage("Esse email já foi cadastrado no sistema", "error", "back");
+            }
+        } else if($senha =! $confirmaSenha){
+            $message->setMessage("As senhas não são iguais", "error", "back");
+        }
 
     }
 } else if ($type === "login") {

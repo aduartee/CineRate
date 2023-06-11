@@ -15,7 +15,7 @@ require_once("templat/header.php");
           </div>
           <div class="form-group">
             <label for="password">Senha:</label>
-            <input type="text" class="form-control" name="passoword" id="password" placeholder="Digite sua senha" required>
+            <input type="password" class="form-control" name="passoword" id="password" placeholder="Digite sua senha" required>
           </div>
           <input type="submit" class="card-btn" value="Entrar">
         </form>
@@ -45,7 +45,8 @@ require_once("templat/header.php");
             <label for="confirmpassoword">Confirmar senha:</label>
             <input type="password" class="form-control" name="confirmpassoword" id="confirmpassoword" placeholder="Confirme sua senha" required autocomplete="off">
           </div>
-          <input type="submit" class="card-btn btn-lg" value="Cadastrar">
+          <div id="password-bar"></div>
+          <input type="submit" id="register-button" class="card-btn btn-lg" value="Cadastrar">
         </form>
 
 
@@ -59,6 +60,7 @@ require_once("templat/header.php");
       </div>
     </div>
   </div>
+  <script src="alertaValidaSenha.js"></script>
 
 </div>
 

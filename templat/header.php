@@ -21,6 +21,8 @@ if(!empty($flashMessage["msg"])){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="<?= $BASE_URL ?>img/favicon.png" type="image/x-icon">
+  <!-- Jquey -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Css !-->
   <link rel="stylesheet" href="css/style.css">
   <!-- Preloader !-->
