@@ -19,22 +19,34 @@ if ($type == "register") {
     $sobrenome = filter_input(INPUT_POST, "sobrenome");
     $email = filter_input(INPUT_POST, "email");
     $senha = filter_input(INPUT_POST, "password");
-    $confirmaSenha = filter_input(INPUT_POST, "confirmpassoword");
+    $confirmasenha = filter_input(INPUT_POST, "confirmpassoword");
 
     if ($nome &&  $sobrenome &&  $email &&  $senha) {
-        if($senha === $confirmaSenha){ 
-            if($userDao->findByEmail($email) === false){
-                echo "Nenhum usuario encontrado";
-            } else{ 
+
+        if ($senha === $confirmaSenha) {
+            if ($userDao->findByEmail($email) === false) {
+
+                $user = new User();
+                $userToken = $user->generateToken();
+                $finalPassword = $user->generatePassword($senha);
+
+                $user->nome = $nome;
+                $user->sobrenome = $sobrenome;
+                $user->email = $email;
+                $user->senha = $finalPassword;
+                $user->token = $userToken;
+
+                $auth = true;
+
+                $userDao ->create($user, $auth);
+            } else {
                 $message->setMessage("Esse email já foi cadastrado no sistema", "error", "back");
             }
-        } else if($senha =! $confirmaSenha){
+        } else if ($senha = !$confirmaSenha) {
             $message->setMessage("As senhas não são iguais", "error", "back");
         }
-
     }
 } else if ($type === "login") {
-
 } else {
     $message->setMessage("Por favor preencha todos os campos", "error", "back");
 }

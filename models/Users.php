@@ -10,6 +10,14 @@ class User
     public $imagem;
     public $bio;
     public $token;
+
+    public function generateToken(){
+        return bin2hex(random_bytes(50));
+    }
+
+    public function generatePassword($senha){
+        return password_hash($senha, PASSWORD_DEFAULT);
+    }
 }
 
 interface UserDAOInterface
