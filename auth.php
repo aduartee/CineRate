@@ -27,7 +27,7 @@ require_once("templat/header.php");
 
           <div class="form-group">
             <label for="name">Nome:</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Digite seu nome" required autocomplete="off">
+            <input type="text" class="form-control" name="nome" id="name" placeholder="Digite seu nome" required autocomplete="off">
           </div>
           <div class="form-group">
             <label for="sobrenome">Sobrenome:</label>
@@ -35,15 +35,15 @@ require_once("templat/header.php");
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="text" class="form-control" name="email" id="email" placeholder="Digite seu email" required autocomplete="off">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu email" required autocomplete="off">
           </div>
           <div class="form-group">
-            <label for="password">Senha:</label>
-            <input type="password" class="form-control" name="passoword" id="password" placeholder="Digite sua senha" required autocomplete="off">
+            <label for="senha">Senha:</label>
+            <input type="password" class="form-control" name="senha" id="password" placeholder="Digite sua senha" required autocomplete="off">
           </div>
           <div class="form-group">
-            <label for="confirmpassoword">Confirmar senha:</label>
-            <input type="password" class="form-control" name="confirmpassoword" id="confirmpassoword" placeholder="Confirme sua senha" required autocomplete="off">
+            <label for="confirmasenha">Confirmar senha:</label>
+            <input type="password" class="form-control" name="confirmasenha" id="confirmpassoword" placeholder="Confirme sua senha" required autocomplete="off">
           </div>
           <div id="password-bar"></div>
           <input type="submit" id="register-button" class="card-btn btn-lg" value="Cadastrar">
@@ -60,7 +60,7 @@ require_once("templat/header.php");
       </div>
     </div>
   </div>
-  <script src="alertaValidaSenha.js"></script>
+  <script src="js/alertaValidaSenha.js"></script>
 
 </div>
 

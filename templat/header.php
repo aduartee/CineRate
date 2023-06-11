@@ -2,14 +2,15 @@
 require_once("global.php");
 require_once("db.php");
 require_once("models/Message.php");
+require_once("dao/UserDAO.php");
 
 
 $message = new Message($BASE_URL);
 
 $flashMessage = $message->getMessage();
 
-if(!empty($flashMessage["msg"])){ 
-  $message ->clearMessage();
+if (!empty($flashMessage["msg"])) {
+  $message->clearMessage();
 }
 ?>
 
@@ -67,6 +68,6 @@ if(!empty($flashMessage["msg"])){
   </header>
   <?php if (!empty($flashMessage["msg"])) : ?>
     <div class="msg-container">
-      <p class="msg <? $flashMessage['tyoe'] ?>"><?= $flashMessage["msg"] ?></p>
+      <p class="msg <?= $flashMessage['type'] ?>"><?= $flashMessage["msg"] ?></p>
     </div>
   <?php endif; ?>
