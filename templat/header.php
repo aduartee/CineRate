@@ -12,6 +12,10 @@ $flashMessage = $message->getMessage();
 if (!empty($flashMessage["msg"])) {
   $message->clearMessage();
 }
+
+$userDao = new UserDAO($conn, $BASE_URL);
+
+$userData = $userDao->verifyToken(false);
 ?>
 
 <!DOCTYPE html>
@@ -59,10 +63,41 @@ if (!empty($flashMessage["msg"])) {
           </button>
         </form>
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="<?= $BASE_URL ?>auth.php" class="nav-link"> Entrar / Cadastrar</a>
-          </li>
-        </ul>
+
+          <?php if ($userData) : ?>
+            <li class="nav-item">
+              <a href="<?= $BASE_URL ?>novofilme.php" class="nav-link">
+                <i class="far fa-plus-square"></i>Incluir filme
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="<?= $BASE_URL ?>dashbord.php" class="nav-link">
+                Meus filmes
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="<?= $BASE_URL ?>editprofile.php" class="nav-link bold">
+                <?= $userData->nome ?>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="<?= $BASE_URL ?>logout.php" class="nav-link bold">
+                Sair
+              </a>
+            </li>
+
+
+          <?php else: ?>
+            <li class="nav-item">
+              <a href="<?= $BASE_URL ?>auth.php" class="nav-link">
+                Entrar / Cadastrar
+              </a>
+            </li>
+            <?php endif; ?> 
+          </ul>
       </div>
     </nav>
   </header>

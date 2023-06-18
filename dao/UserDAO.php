@@ -23,11 +23,25 @@ class UserDAO implements UserDAOInterface
         $user->sobrenome = $data["sobrenome"];
         $user->email = $data["email"];
         $user->senha = $data["senha"];
-        $user->imagem = $data["imagem"];
+        // $user->imagem = $data["imagem"];
         $user->bio = $data["bio"];
         $user->token = $data["token"];
+
+        // Verificar se a chave "imagem" está definida
+        if (isset($data["imagem"])) {
+            $user->imagem = $data["imagem"];
+        } else {
+            // Definir um valor padrão ou lidar com a ausência de imagem
+            $user->imagem = "imagem_padrao.jpg";
+            // Ou
+            $user->imagem = null;
+            // Ou qualquer outra lógica que faça sentido para o seu aplicativo
+        }
+
         return  $user;
     }
+
+
     public function create(User $user, $authUser = false)
     {
         $stmt = $this->conn->prepare(" INSERT INTO users(
@@ -43,31 +57,60 @@ class UserDAO implements UserDAOInterface
 
         $stmt->execute();
 
-        if($authUser) {
+        if ($authUser) {
 
             $this->setTokenToSession($user->token);
-    
-          }
-
+        }
     }
     public function update(User $user)
     {
     }
-    public function findByToken(User $token)
-    {
-    }
     public function verifyToken($protected = false)
     {
+        if (!empty($_SESSION["token"])) {
+
+            $token = $_SESSION["token"];
+            $user = $this->findByToken($token);
+
+            if ($user) {
+                return $user;
+            } else if($protected){
+                $this->message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
+            }
+
+            
+        } else if($protected){
+            $this->message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
+        }
+    }
+
+    public function findByToken($token)
+    {
+        if ($token != "") {
+            $stmt = $this->conn->prepare("SELECT * FROM users WHERE token = :token");
+
+            $stmt->bindParam(":token", $token);
+
+            $stmt->execute();
+
+            // Caso o dado exista na tabela ele pega o valor e builda o user
+            if ($stmt->rowCount() > 0) {
+                $data = $stmt->fetch();
+                $token = $this->buildUser($data);
+                return $token;
+            } else {
+                return false;
+            }
+        }
     }
     public function setTokenToSession($token, $redirect = true)
     {
         $_SESSION["token"] = $token;
 
-        if($redirect){
+        if ($redirect) {
 
             $this->message->setMessage("Bem-vindo ao sistema", "sucess", "editprofile.php");
         }
-
     }
     public function authenticateUser($email, $senha)
     {
@@ -95,5 +138,12 @@ class UserDAO implements UserDAOInterface
     }
     public function changePassword(User $senha)
     {
+    }
+
+    public function destroyToken(){
+        $_SESSION["token"] = "";
+
+        $this->message->setMessage("Logout Realizado com sucesso", "sucess", "index.php");
+        
     }
 }
