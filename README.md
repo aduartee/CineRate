@@ -2,7 +2,7 @@
   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </p>
 
-<h1>CineRate</h1> :film_projector:
+<h1>CineRate  :film_projector: </h1>
 <p>
   CineRate é uma plataforma onde os usuários podem postar avaliações de filmes que já assistiram e interagir com outros usuários por meio de seus posts. Este projeto foi desenvolvido utilizando HTML, CSS, PHP, JavaScript e jQuery.
 </p>
