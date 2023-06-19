@@ -28,6 +28,6 @@
   <li>Utilize a barra de pesquisa para encontrar filmes específicos ou pesquisar por palavras-chave nas avaliações.</li>
 </ol>
 
-<p style:color="green">
+<h3>
   Espero que você aproveite o CineRate e tenha uma ótima experiência compartilhando suas avaliações de filmes com outros usuários! :clapper:
-</p>
+</h3>
