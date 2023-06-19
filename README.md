@@ -7,7 +7,7 @@
   CineRate é uma plataforma onde os usuários podem postar avaliações de filmes que já assistiram e interagir com outros usuários por meio de seus posts. Este projeto foi desenvolvido utilizando HTML, CSS, PHP, JavaScript e jQuery.
 </p>
 
-<h2>Instalação</h2>
+<h2>Instalação :wrench:</h2>
 <ol>
   <li>Certifique-se de ter um servidor web (por exemplo, Apache) instalado em sua máquina.</li>
   <li>Faça o download ou clone o repositório do projeto.</li>
@@ -18,7 +18,7 @@
   <li>Abra o navegador e acesse a URL do seu servidor web onde o projeto foi instalado.</li>
 </ol>
 
-<h2>Uso</h2>
+<h2>Uso :computer:</h2>
 <ol>
   <li>Na página inicial, você pode navegar pelos filmes e avaliações já postadas pelos usuários.</li>
   <li>Para postar uma avaliação, clique no botão "Postar Avaliação" e preencha as informações solicitadas, como título do filme, avaliação e comentário.</li>
@@ -28,6 +28,6 @@
   <li>Utilize a barra de pesquisa para encontrar filmes específicos ou pesquisar por palavras-chave nas avaliações.</li>
 </ol>
 
-<p>
-  Espero que você aproveite o CineRate e tenha uma ótima experiência compartilhando suas avaliações de filmes com outros usuários!
+<p style:color="green">
+  Espero que você aproveite o CineRate e tenha uma ótima experiência compartilhando suas avaliações de filmes com outros usuários! :clapper:
 </p>
