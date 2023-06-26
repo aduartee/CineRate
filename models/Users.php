@@ -11,6 +11,10 @@ class User
     public $bio;
     public $token;
 
+    public function getFullName($user){
+        return $user->nome . " " . $user->sobrenome;
+    }
+
     public function generateToken(){
         return bin2hex(random_bytes(50));
     }
