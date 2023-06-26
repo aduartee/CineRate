@@ -48,10 +48,24 @@ if ($type == "register") {
         } else if ($senha != $confirmaSenha) {
             $message->setMessage("As senhas não são iguais", "error", "back");
         }
+    } else {
+        $message->setMessage("Por favor preencha todos os campos", "error", "back");
     }
     
 } else if ($type === "login") {
-    
-} else {
-    $message->setMessage("Por favor preencha todos os campos", "error", "back");
-}
+    $email = filter_input(INPUT_POST, "email");
+    $senha = filter_input(INPUT_POST, "senha");
+
+
+    if($userDao->authenticateUser($email, $senha)) { 
+
+        $message->setMessage("Seja bem-vindo", "sucess", "editprofile.php");
+
+    } else{
+        $message->setMessage("Email ou senha incorretos", "error", "back");
+        
+
+    } 
+} else{
+    $message->setMessage("Informações estão inválidas", "error", "back");
+} 
