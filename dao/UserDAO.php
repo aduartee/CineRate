@@ -62,8 +62,32 @@ class UserDAO implements UserDAOInterface
             $this->setTokenToSession($user->token);
         }
     }
-    public function update(User $user)
-    {
+    public function update(User $user, $redirect = true) {
+
+        $stmt = $this->conn->prepare(" UPDATE users 
+                                       SET nome = :nome,
+                                       sobrenome = :sobrenome,
+                                       email = :email,
+                                       image = :image,
+                                       bio = :bio,
+                                       token = :token
+                                       WHERE id = :id ");
+
+        $stmt->bindParam(":nome", $user->nome);
+        $stmt->bindParam(":sobrenome", $user->sobrenome);
+        $stmt->bindParam(":email", $user->email);
+        $stmt->bindParam(":image", $user->imagem);
+        $stmt->bindParam(":bio", $user->bio);
+        $stmt->bindParam(":token", $user->token);
+        $stmt->bindParam(":id", $user->id);
+
+        $stmt->execute();
+
+        if ($redirect) {
+
+            $this->message->setMessage("Bem-vindo ao sistema", "sucess", "editprofile.php");
+        }
+
     }
     public function verifyToken($protected = false)
     {
@@ -74,12 +98,10 @@ class UserDAO implements UserDAOInterface
 
             if ($user) {
                 return $user;
-            } else if($protected){
+            } else if ($protected) {
                 $this->message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
             }
-
-            
-        } else if($protected){
+        } else if ($protected) {
             $this->message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
         }
     }
@@ -114,6 +136,30 @@ class UserDAO implements UserDAOInterface
     }
     public function authenticateUser($email, $senha)
     {
+        $user = $this->findByEmail($email);
+
+        if ($user) {
+            // Verifica se as senhas batem
+            if (password_verify($senha, $user->senha)) {
+
+                $token = $user->generateToken();
+
+                $this->setTokenToSession($token, false);
+
+                // Atualiza o token da sessão
+
+                $user->token = $token;
+
+                $this->update($user, false);
+
+                return true;
+
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
     public function findByEmail($email)
     {
@@ -140,10 +186,10 @@ class UserDAO implements UserDAOInterface
     {
     }
 
-    public function destroyToken(){
+    public function destroyToken()
+    {
         $_SESSION["token"] = "";
 
         $this->message->setMessage("Logout Realizado com sucesso", "sucess", "index.php");
-        
     }
 }
