@@ -85,7 +85,7 @@ class UserDAO implements UserDAOInterface
 
         if ($redirect) {
 
-            $this->message->setMessage("Bem-vindo ao sistema", "sucess", "editprofile.php");
+            $this->message->setMessage("Dados alterados com sucesso", "sucess", "editprofile.php");
         }
 
     }

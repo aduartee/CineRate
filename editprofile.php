@@ -57,7 +57,7 @@ if ($userData->imagem == "") {
 
                         <div class="form-group">
                             <label for="bio">Sobre você:</label>
-                            <textarea class="form-control" name="bio" id="bio" cols="5" rows="3" placeholder="Descreva-se aqui"><?= $userData->bio ?></textarea>
+                            <textarea class="form-control" name="bio" id="bio" cols="5" rows="3" placeholder="Descreva-se aqui"><?= $userData->bio?></textarea>
                         </div>
 
                         <input type="submit" class="card-btn btn-lg" value="Alterar">
