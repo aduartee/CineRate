@@ -236,3 +236,55 @@
     margin-bottom: 20px;
 }
 
+
+/* Edição de perfil */
+
+#profile-image-container {
+    width: 200px;
+    height: 200px;
+    border: 3px solid #1A539C;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    margin: 15px auto;
+    transition: ease-in 2s;
+}
+
+#profile-image-container:hover {
+    transform: scale(1.1);
+}
+
+.page-description {
+    color: #999;
+}
+
+#bio {
+    max-width: 400px;
+}
+
+.form-control:not(.disabled) {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input[type="submit"] {
+    background-color: #1A539C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #0F3A6B;
+}

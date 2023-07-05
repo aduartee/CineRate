@@ -11,12 +11,20 @@ class User
     public $bio;
     public $token;
 
+    public function getFullName($user){
+        return $user->nome . " " . $user->sobrenome;
+    }
+
     public function generateToken(){
         return bin2hex(random_bytes(50));
     }
 
     public function generatePassword($senha){
         return password_hash($senha, PASSWORD_DEFAULT);
+    }
+
+    public function generateImageName(){
+        return bin2hex(random_bytes(50)) . ".jpeg";
     }
 }
 
