@@ -89,22 +89,6 @@ class UserDAO implements UserDAOInterface
         }
 
     }
-    public function verifyToken($protected = false)
-    {
-        if (!empty($_SESSION["token"])) {
-
-            $token = $_SESSION["token"];
-            $user = $this->findByToken($token);
-
-            if ($user) {
-                return $user;
-            } else if ($protected) {
-                $this->message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
-            }
-        } else if ($protected) {
-            $this->message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
-        }
-    }
 
     public function findByToken($token)
     {
@@ -123,6 +107,23 @@ class UserDAO implements UserDAOInterface
             } else {
                 return false;
             }
+        }
+    }
+
+    public function verifyToken($protected = false)
+    {
+        if (!empty($_SESSION["token"])) {
+
+            $token = $_SESSION["token"];
+            $user = $this->findByToken($token);
+
+            if ($user) {
+                return $user;
+            } else if ($protected) {
+                $this->message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
+            }
+        } else if ($protected) {
+            $this->message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
         }
     }
     public function setTokenToSession($token, $redirect = true)
@@ -182,8 +183,21 @@ class UserDAO implements UserDAOInterface
     public function findById($id)
     {
     }
-    public function changePassword(User $senha)
+    public function changePassword(User $user)
     {
+        $stmt = $this->conn->prepare(" UPDATE users 
+                                       SET senha = :senha
+                                       WHERE id = :id");
+
+        $stmt->bindParam(":id", $user->id);
+        $stmt->bindParam(":senha", $user->senha);
+
+        $stmt->execute();
+
+        $this->message->setMessage("Senha alterada com sucesso", "sucess", "editprofile.php");
+
+
+
     }
 
     public function destroyToken()

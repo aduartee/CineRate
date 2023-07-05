@@ -63,6 +63,25 @@ if($type == "update"){
 
 } else if($type == "changepassword"){ 
 
+    $senha = filter_input(INPUT_POST, "senha");
+    $confirma_senha = filter_input(INPUT_POST, "confirmasenha");
+    $userData = $userDao->verifyToken();
+    $id = $userData->id;
+
+    if($senha === $confirma_senha){
+        $user = new User();
+
+        $senhaFinal = $user->generatePassword($senha);
+        $user->senha = $senhaFinal;
+        $user->id = $id;
+
+        $userDao->changePassword($user);
+        
+    } else {
+        $message->setMessage("As senhas precisam ser iguais", "error", "editprofile.php.php");
+
+    }
+
 }else{ 
     $message->setMessage("Faça login no sistema para acessar essa pagina", "error", "index.php");
 }

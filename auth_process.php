@@ -41,7 +41,6 @@ if ($type == "register") {
 
                 $userDao->create($user, $auth);
                 
-                echo "inserido";
             } else {
                 $message->setMessage("Esse email já foi cadastrado no sistema", "error", "back");
             }
