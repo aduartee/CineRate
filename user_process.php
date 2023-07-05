@@ -28,6 +28,35 @@ if($type == "update"){
     $userData->email = $email;
     $userData->bio = $bio;
 
+    if(isset($_FILES["imagem"]) && !empty($_FILES["imagem"]["tmp_name"])){
+        $imagem = $_FILES["imagem"];
+        $imgTypes = ["image/jpg", "image/jpeg", "image/png"];
+        $jpgArray = ["image/jpg", "image/jpeg"];
+
+        if(in_array($imagem["type"], $imgTypes)){
+
+            if(in_array($imagem, $jpgArray )){
+
+                $imageFile = imageCreateFromJpeg($imagem["tmp_name"]);
+
+            } else{
+                $imageFile = imageCreateFromPng($imagem["tmp_name"]);
+
+            }
+
+            $imageName = $user->generateImageName();
+
+            imagejpeg($imageFile, "img/users/" . $imageName, 100);
+
+            $userData->imagem = $imageName;
+
+
+        } else{ 
+            $message->setMessage("Imagem inválida, formato está incorreto. Formatos permtidos: png, jpeg e jpg", "error", "back");
+
+        }
+    }
+
     $userDao->update($userData);
 
 

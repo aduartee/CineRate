@@ -22,6 +22,10 @@ class User
     public function generatePassword($senha){
         return password_hash($senha, PASSWORD_DEFAULT);
     }
+
+    public function generateImageName(){
+        return bin2hex(random_bytes(50)) . ".jpeg";
+    }
 }
 
 interface UserDAOInterface
