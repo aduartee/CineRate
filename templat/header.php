@@ -66,7 +66,7 @@ $userData = $userDao->verifyToken(false);
 
           <?php if ($userData) : ?>
             <li class="nav-item">
-              <a href="<?= $BASE_URL ?>novofilme.php" class="nav-link">
+              <a href="<?= $BASE_URL ?>formnewmovie.php" class="nav-link">
                 <i class="far fa-plus-square"></i>Incluir filme
               </a>
             </li>
