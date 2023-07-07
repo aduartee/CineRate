@@ -4,6 +4,7 @@
         public $titulo;
         public $imagem;
         public $categoria;
+        public $descricao;
         public $tamanho;
         public $trailer;
         public $users_id;

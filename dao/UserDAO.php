@@ -27,16 +27,16 @@ class UserDAO implements UserDAOInterface
         $user->bio = $data["bio"];
         $user->token = $data["token"];
 
-        // Verificar se a chave "imagem" está definida
-        if (isset($data["imagem"])) {
-            $user->imagem = $data["imagem"];
-        } else {
-            // Definir um valor padrão ou lidar com a ausência de imagem
-            $user->imagem = "imagem_padrao.jpg";
-            // Ou
-            $user->imagem = null;
-            // Ou qualquer outra lógica que faça sentido para o seu aplicativo
-        }
+        // // Verificar se a chave "imagem" está definida
+        // if (isset($data["imagem"])) {
+        //     $user->imagem = $data["imagem"];
+        // } else {
+        //     // Definir um valor padrão ou lidar com a ausência de imagem
+        //     $user->imagem = "imagem_padrao.jpg";
+        //     // Ou
+        //     $user->imagem = null;
+        //     // Ou qualquer outra lógica que faça sentido para o seu aplicativo
+        // }
 
         return  $user;
     }

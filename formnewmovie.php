@@ -15,7 +15,7 @@ $message = new Message($BASE_URL);
     <div class="offset-md-4 col-md-4 new-movie-container">
         <h1 class="page-title">Adicionar Filme</h1>
         <p class="page-description">Adicione aqui sua crítica</p>
-        <form method="POST" action="<?= $BASE_URL ?>movieprocess.php" id="add-movie-form" enctype="multipart/form-data">
+        <form method="POST" action="<?= $BASE_URL ?>movie_process.php" id="add-movie-form" enctype="multipart/form-data">
             <input type="hidden" name="type" value="create">
 
             <div class="form-group">
@@ -30,7 +30,7 @@ $message = new Message($BASE_URL);
 
             <div class="form-group">
                 <label for="categoria">Categoria:</label>
-                <select class="form-control" id="categoria" name="categoria" placeholder="Digite a duração do filme">
+                <select class="form-control  form-select form-select-sm" aria-label=".form-select-sm example" id="categoria" name="categoria" placeholder="Digite a duração do filme">
                     <option value="">Selecione</option>
                     <option value="Ação">Ação</option>
                     <option value="Comédia">Comédia</option>
